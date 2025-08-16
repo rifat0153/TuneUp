@@ -7,7 +7,7 @@
         x:Class="TuneUp.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="SoundConfig1">
+        Title="TuneUp - Audio Device Manager">
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
@@ -15,15 +15,15 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-
-	<Grid ColumnDefinitions="200,*"
-		  Background="{DynamicResource ResourceKey=PrimaryBackground}"
-		  >
+	<Grid 
+		ColumnDefinitions="30*,70*"
+		Background="{DynamicResource ResourceKey=PrimaryBackground}">
+		
 		<ListBox Grid.Column="0" ItemsSource="{Binding AudioDevices}">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
 					<StackPanel Orientation="Vertical">
-						<TextBlock Text="{Binding Name}" Margin="0,0,10,0"/>
+						<TextBlock Text="{Binding Name}" Margin="0,0,10,0" TextWrapping="Wrap"/>
 						<TextBlock Text="{Binding IsDefault}"/>
 					</StackPanel>
 				</DataTemplate>
@@ -35,6 +35,7 @@
 			<Button Content="Button 2" Margin="5"/>
 			<TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 		</StackPanel>
+		
 	</Grid>
 
 </Window>
