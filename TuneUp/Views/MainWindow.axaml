@@ -19,12 +19,22 @@
 	<Grid ColumnDefinitions="200,*"
 		  Background="{DynamicResource ResourceKey=PrimaryBackground}"
 		  >
-		<StackPanel Grid.Column="0"  Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Stretch">
-            <Button Content="Button 1" Margin="5"/>
-            <Button Content="Button 2" Margin="5"/>
-		</StackPanel>
+		<ListBox Grid.Column="0" ItemsSource="{Binding AudioDevices}">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel Orientation="Vertical">
+						<TextBlock Text="{Binding Name}" Margin="0,0,10,0"/>
+						<TextBlock Text="{Binding IsDefault}"/>
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
 
-		<TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<StackPanel Grid.Column="1"  Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Stretch">
+			<Button Content="Button 1" Margin="5"/>
+			<Button Content="Button 2" Margin="5"/>
+			<TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</StackPanel>
 	</Grid>
 
 </Window>
